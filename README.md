@@ -11,4 +11,4 @@ The project is organized into the following directories:
   - `/deps` - a folder that helps direct all local code to the correct remote dependencies (on both client and server)
   - `/server` - a folder where we define server behavior and render the React tree
 
-Advance to the next commit to see how we use React to make building pages easier using props.
+Advance to the next commit to create a client bundle for dynamic functionality on the client.
