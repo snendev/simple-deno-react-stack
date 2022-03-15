@@ -11,4 +11,6 @@ The project is organized into the following directories:
   - `/deps` - a folder that helps direct all local code to the correct remote dependencies (on both client and server)
   - `/server` - a folder where we define server behavior and render the React tree
 
-Advance to the next commit to leverage React 18's support for server-rendered Suspense, and suspensefully fetch data.
+The webserver is defined with SSR and serves a mix of API routes, static files, and client app routes.
+It aims to show how React can be used to create reusable components for rendering dynamic pages.
+It leverages React 18's support for server-rendered Suspense, lazy-loaded code resources, and suspensefully fetched data.

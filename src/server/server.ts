@@ -2,6 +2,7 @@ import { Application } from "../deps/oak.ts";
 
 import render from "../client/server/render.tsx";
 
+import apiRouter from "./apiRouter.ts";
 import staticRouter from "./staticRouter.ts";
 
 const app = new Application();
@@ -15,10 +16,13 @@ app.use(async (context, next) => {
   }
 });
 
+// handle api routes
+app.use(apiRouter.routes());
+app.use(apiRouter.allowedMethods());
 // handle static resource requests
 app.use(staticRouter.routes());
 app.use(staticRouter.allowedMethods());
-// define any other routers, api router, redirects, etc.
+// define any other routers, redirects, etc.
 
 // handle everything else as an app route
 app.use(async (context) => {
@@ -27,4 +31,4 @@ app.use(async (context) => {
 });
 
 console.log("Listening...");
-app.listen(":8080");
+app.listen(`:${Deno.env.get("PORT") ?? "8080"}`);

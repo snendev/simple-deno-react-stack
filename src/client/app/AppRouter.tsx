@@ -4,7 +4,12 @@ import React from "../../deps/react.ts";
 import { Route, Routes } from "../../deps/react-router-dom.tsx";
 
 import HomePage from "./HomePage.tsx";
-import BirdPage from "./BirdPage.tsx"
+import BirdPage from "./BirdPage.tsx";
+
+type LazyType = React.LazyExoticComponent<
+  () => React.ReactElement
+>;
+const DataPage: LazyType = React.lazy(async () => await import("./DataPage.tsx"))
 
 export default function AppRouter() {
   return (
@@ -17,6 +22,14 @@ export default function AppRouter() {
       <Route
         path="/bird"
         element={<BirdPage />}
+      />
+      <Route
+        path="/data"
+        element={
+          <React.Suspense fallback={<div>Loading...</div>}>
+            <DataPage />
+          </React.Suspense>
+        }
       />
     </Routes>
   );

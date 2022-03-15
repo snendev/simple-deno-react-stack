@@ -10,7 +10,12 @@ export default function HomePage() {
     <Page header={<h1>Hello world!</h1>}>
       {/* React-router Links only re-render the parts of your app that need to change when you navigate to a route! */}
       {/* This avoids re-fetching the document from the server and re-rendering unnecessary parts of the app. */}
-      <Link to="/bird">See a bird</Link>
+      <div>
+        <Link to="/bird">See a bird</Link>
+      </div>
+      <div>
+        <Link to="/data">See some fake data</Link>
+      </div>
     </Page>
   );
 }
