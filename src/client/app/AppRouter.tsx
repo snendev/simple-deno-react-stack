@@ -4,8 +4,7 @@ import React from "../../deps/react.ts";
 import { Route, Routes } from "../../deps/react-router-dom.tsx";
 
 import HomePage from "./HomePage.tsx";
-import Image from "./Image.tsx";
-import Page from "./Page.tsx"
+import BirdPage from "./BirdPage.tsx"
 
 export default function AppRouter() {
   return (
@@ -17,13 +16,7 @@ export default function AppRouter() {
       />
       <Route
         path="/bird"
-        element={
-          <Page
-            header={<h1>Bird!</h1>}
-          >
-            <Image assetName="bird" />
-          </Page>
-        }
+        element={<BirdPage />}
       />
     </Routes>
   );
